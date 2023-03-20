@@ -5,13 +5,13 @@ import java.util.*;
 
 public class CustomerReverseOrder {
 
-    Stack<Customer> stack = new Stack<>();
+    private final ArrayDeque<Customer> stackOrder = new ArrayDeque<>();
     public void add(Customer customer) {
-        stack.add(customer);
+        stackOrder.push(customer);
     }
 
     public Customer take() {
-        return stack.pop();
+        return stackOrder.pop();
     }
 
 }
