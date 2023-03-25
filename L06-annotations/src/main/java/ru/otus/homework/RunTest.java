@@ -11,7 +11,7 @@ import java.util.*;
 import java.util.logging.Logger;
 
 public class RunTest {
-    private static Logger logger = Logger.getLogger(RunTest.class.toString());
+    private static final Logger logger = Logger.getLogger(RunTest.class.toString());
     public static void main(String[] args) throws Exception {
         if(args.length==0){
             throw new RuntimeException("No arguments");
@@ -31,11 +31,11 @@ public class RunTest {
         List<String> errorTest = new ArrayList<>();
         List<String> goodTest = new ArrayList<>();
 
-        resultRunTests.entrySet().stream().forEach(entry-> {
-            if(entry.getValue() instanceof Exception){
-                errorTest.add(entry.getKey());
-            }else{
-                goodTest.add(entry.getKey());
+        resultRunTests.forEach((key, value) -> {
+            if (value instanceof Exception) {
+                errorTest.add(key);
+            } else {
+                goodTest.add(key);
             }
         });
         logger.info("Size error tests "+errorTest.size());
@@ -52,7 +52,7 @@ public class RunTest {
         for (Map.Entry<String, Class<?>> methods : methodsClassWithAnnotation.entrySet()) {
             if (methods.getValue().equals(Test.class)) {
                 Object object = clazz.getConstructor().newInstance();
-                Class<? extends Object> mainClass = object.getClass();
+                Class<?> mainClass = object.getClass();
 
                 Method methodBefore = mainClass.getMethod(beforeMethodName);
                 Method methodTest = mainClass.getMethod(methods.getKey());
