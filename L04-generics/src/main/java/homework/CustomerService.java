@@ -1,23 +1,28 @@
 package homework;
 
-
-import java.util.Map;
+import java.util.*;
 
 public class CustomerService {
-
-    //todo: 3. надо реализовать методы этого класса
-    //важно подобрать подходящую Map-у, посмотрите на редко используемые методы, они тут полезны
-
+    private TreeMap<Customer, String> treeMapCustomers = new TreeMap<>(Comparator.comparingLong(Customer::getScores));
     public Map.Entry<Customer, String> getSmallest() {
-        //Возможно, чтобы реализовать этот метод, потребуется посмотреть как Map.Entry сделан в jdk
-        return null; // это "заглушка, чтобы скомилировать"
+        Map.Entry<Customer, String> smallestEntry = treeMapCustomers.firstEntry();
+        if(smallestEntry == null){
+            return null;
+        }
+        Customer smallestCustomer = smallestEntry.getKey();
+        return new AbstractMap.SimpleEntry<Customer, String>(new Customer(smallestCustomer.getId(), smallestCustomer.getName(), smallestCustomer.getScores()), treeMapCustomers.get(smallestCustomer));
     }
 
     public Map.Entry<Customer, String> getNext(Customer customer) {
-        return null; // это "заглушка, чтобы скомилировать"
+        Map.Entry<Customer, String> nextEntry = treeMapCustomers.higherEntry(customer);
+        if (nextEntry == null) {
+            return null;
+        }
+        Customer nextCustomer = nextEntry.getKey();
+        return new AbstractMap.SimpleEntry<Customer, String>(new Customer(nextCustomer.getId(), nextCustomer.getName(), nextCustomer.getScores()), treeMapCustomers.get(nextCustomer));
     }
 
     public void add(Customer customer, String data) {
-
+        treeMapCustomers.put(customer,data);
     }
 }
