@@ -72,7 +72,7 @@ public class RunTest {
     }
 
     private static String searchSpecialMethod(Map<String, Class<?>> methodsClassWithAnnotation, Class<?> clazz) throws NoSuchMethodException {
-        Optional<String> methodName =methodsClassWithAnnotation
+        Optional<String> methodName = methodsClassWithAnnotation
                 .entrySet()
                 .stream()
                 .filter(entry -> clazz.equals(entry.getValue()))
