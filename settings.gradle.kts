@@ -1,5 +1,7 @@
 rootProject.name = "otus_2023"
 include ("L01-gradle")
+include ("L04-generics")
+include ("L06-annotations")
 
 
 pluginManagement {
