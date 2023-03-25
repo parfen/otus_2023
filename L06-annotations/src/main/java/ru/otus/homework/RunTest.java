@@ -71,12 +71,16 @@ public class RunTest {
         return resultRunTests;
     }
 
-    private static String searchSpecialMethod(Map<String, Class<?>> methodsClassWithAnnotation, Class<?> clazz) {
-        return methodsClassWithAnnotation
+    private static String searchSpecialMethod(Map<String, Class<?>> methodsClassWithAnnotation, Class<?> clazz) throws NoSuchMethodException {
+        Optional<String> methodName =methodsClassWithAnnotation
                 .entrySet()
                 .stream()
                 .filter(entry -> clazz.equals(entry.getValue()))
-                .map(Map.Entry::getKey).findFirst().get();
+                .map(Map.Entry::getKey).findFirst();
+        if(methodName.isEmpty()){
+            throw new NoSuchMethodException(String.format("There is no method in the class marked with the %s annotation",clazz.toString()));
+        }
+        return methodName.get();
     }
 
     private static Map<String,Class<?>> searchMethodTests(Class<?> clazz) {
