@@ -1,0 +1,35 @@
+Defualt spend msec:8260, sec:8
+-Xms256m -Xmx256m  java.lang.OutOfMemoryError
+
+оптимальный размер хипа, увеличение не повышает производительность
+-Xms2g -Xmx2g  spend msec:8059, sec:8
+-Xms2g -Xmx2g  spend msec:8228, sec:8
+-Xms2g -Xmx2g  spend msec:8573, sec:8
+-Xms2g -Xmx2g  spend msec:8536, sec:8
+-Xms2g -Xmx2g  spend msec:8645, sec:8
+
+-Xms4g -Xmx4g  spend msec:8188, sec:8
+-Xms4g -Xmx4g  spend msec:8391, sec:8
+-Xms4g -Xmx4g  spend msec:8314, sec:8
+-Xms4g -Xmx4g  spend msec:8260, sec:8
+-Xms4g -Xmx4g  spend msec:8008, sec:8
+
+-Xms6g -Xmx6g  spend msec:8977, sec:8
+-Xms6g -Xmx6g  spend msec:8480, sec:8
+-Xms6g -Xmx6g  spend msec:8532, sec:8
+-Xms6g -Xmx6g  spend msec:8466, sec:8
+-Xms6g -Xmx6g  spend msec:8613, sec:8
+
+-Xms8g -Xmx8g  spend msec:9464, sec:9
+-Xms8g -Xmx8g  spend msec:8873, sec:8
+
+-Xms1g -Xmx8g  spend msec:11846, sec:11
+
+везде заменил Integer на int
+-Xms2g -Xmx2g  spend msec:1400, sec:1 
+-Xms2g -Xmx2g  spend msec:1568, sec:1
+-Xms2g -Xmx2g  spend msec:1439, sec:1
+
+отказался от использования List
+-Xms2g -Xmx2g  spend msec:511, sec:0
+-Xms2g -Xmx2g  spend msec:602, sec:0
