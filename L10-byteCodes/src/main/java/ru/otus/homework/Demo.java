@@ -8,7 +8,7 @@ public class Demo{
 
 
     public static void main(String args[]){
-        TestLoggingInterface myClass = ru.otus.homework.Ioc.createClass();
+        TestLoggingInterface myClass = ru.otus.homework.Ioc.createClass(new TestLogging());
         myClass.calculation(6);
     }
 }
