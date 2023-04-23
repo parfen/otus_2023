@@ -9,33 +9,33 @@ import java.util.Map;
 public class TestHomeWork {
     @Test
     public void testGetSum0ReturnError(){
-        ATM atm = new ATM();
+        ATM atm = new ATM(new AtmData());
         initAtm(atm);
         Assertions.assertThrows(RuntimeException.class,  () -> atm.getCash(0));
     }
     @Test
     public void testGetSumLessZeroReturnError(){
-        ATM atm = new ATM();
+        ATM atm = new ATM(new AtmData());
         initAtm(atm);
         Assertions.assertThrows(RuntimeException.class,  () -> atm.getCash(-1));
     }
 
     @Test
     public void testGetSum1ReturnError(){
-        ATM atm = new ATM();
+        ATM atm = new ATM(new AtmData());
         initAtm(atm);
         Assertions.assertThrows(RuntimeException.class,  () -> atm.getCash(1));
     }
     @Test
     public void testGetSumMoreHaveAtmReturnError(){
-        ATM atm = new ATM();
+        ATM atm = new ATM(new AtmData());
         initAtm(atm);
         Assertions.assertThrows(RuntimeException.class,  () -> atm.getCash(2000));
     }
 
     @Test
     public void testGetSum101ReturnError(){
-        ATM atm = new ATM();
+        ATM atm = new ATM(new AtmData());
         initAtm(atm);
         Map<Banknote, Integer> cash = atm.getCash(100);
         // ожидаем 1 купюры
@@ -43,7 +43,7 @@ public class TestHomeWork {
     }
     @Test
     public void testGetSum100ReturnOneBanknoteHUNDRED(){
-        ATM atm = new ATM();
+        ATM atm = new ATM(new AtmData());
         initAtm(atm);
         Map<Banknote, Integer> cash = atm.getCash(100);
         // ожидаем 1 купюру
@@ -53,7 +53,7 @@ public class TestHomeWork {
 
     @Test
     public void testGetSum200ReturnTwoBanknoteHUNDRED(){
-        ATM atm = new ATM();
+        ATM atm = new ATM(new AtmData());
         initAtm(atm);
         Map<Banknote, Integer> cash = atm.getCash(200);
         // ожидаем 2 купюры
@@ -62,7 +62,7 @@ public class TestHomeWork {
     }
     @Test
     public void testGetSum105ReturnTwoBanknoteHungredAndFive(){
-        ATM atm = new ATM();
+        ATM atm = new ATM(new AtmData());
         initAtm(atm);
         Map<Banknote, Integer> cash = atm.getCash(105);
         // ожидаем 2 купюры

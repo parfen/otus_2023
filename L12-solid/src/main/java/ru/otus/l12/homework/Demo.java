@@ -2,13 +2,13 @@ package ru.otus.l12.homework;
 
 public class Demo {
     public static void main(String[] args) {
-        ATM atm = new ATM();
+        ATM atm = new ATM(new AtmData());
 
         initAtm(atm);
 
-        atm.printBalans();
+        atm.printBalance();
         atm.getCash(2000);
-        atm.printBalans();
+        atm.printBalance();
     }
 
 
