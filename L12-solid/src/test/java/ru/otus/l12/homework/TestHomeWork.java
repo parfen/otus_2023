@@ -39,8 +39,6 @@ public class TestHomeWork {
     public void testGetSum101ReturnError(){
         ATM atm = new ATM(new Balance());
         initAtm(atm);
-        List<Banknote> cash = atm.getCash(100);
-        // ожидаем 1 купюры
         Assertions.assertThrows(RuntimeException.class,  () -> atm.getCash(101));
     }
     @Test
