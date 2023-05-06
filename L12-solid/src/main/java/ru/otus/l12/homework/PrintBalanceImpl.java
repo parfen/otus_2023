@@ -8,12 +8,15 @@ public class PrintBalanceImpl implements IPrintBalance {
     PrintBalanceImpl (IBalance balance){
         this.balance = balance;
     }
+
     @Override
     public void printBalance(){
-        Map<Banknote, Integer> summaBanknote = new HashMap<>();
-        summaBanknote.putAll(balance.getCountBanknote());
+        if(balance == null){
+            System.out.println("Balance is not initialized");
+            return;
+        }
         for(var banknote : Banknote.values()) {
-            Integer countBanknote = summaBanknote.get(banknote);
+            Integer countBanknote = balance.getCountBanknote().get(banknote);
             System.out.println("The remaining banknote in face value " + banknote.name() + " = " + countBanknote.toString());
             Integer sum = countBanknote * banknote.getValue();
             System.out.println("For the amount of " + sum.toString());
