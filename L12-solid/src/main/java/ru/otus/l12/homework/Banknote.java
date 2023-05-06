@@ -21,11 +21,7 @@ public enum Banknote {
         return value;
     }
 
-    public static Banknote[] reversValues(){
-        Banknote [] reversValue = Banknote.values();
-        Arrays.sort(reversValue, Collections.reverseOrder());
-        return reversValue;
-    }
+
 
 
 }

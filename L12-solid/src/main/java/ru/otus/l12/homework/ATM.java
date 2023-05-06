@@ -2,26 +2,29 @@ package ru.otus.l12.homework;
 
 import java.util.*;
 
-public class ATM implements Cash,PrintBalance{
-    private AtmData atmData;
+public class ATM implements IATM,PrintBalance{
+    private IBalance balance;
 
-    public ATM(AtmData atmData){
-        this.atmData = atmData;
+    public ATM(IBalance balance){
+        this.balance = balance;
     };
 
     @Override
-    public Map<Banknote, Integer> getCash(Integer summa){
-        return atmData.getCash(new CheckSumma(summa));
+    public List<Banknote> getCash(Integer summa){
+        IValidateSumma checkSumma = new ValidateSumma(summa);
+        summa = checkSumma.validateSumma(balance);
+        ITransformationSummaToListBanknote transformer = new TransformationSummaToListBanknote();
+        return balance.getCash(transformer.transformationSumma(summa));
     }
 
-
-    public void putCash(Banknote banknote, Integer count){
-        atmData.putCash(banknote,count);
+    @Override
+    public void setCash(List<Banknote> banknotes){
+        balance.addCash(banknotes);
     }
 
     @Override
     public void printBalance(){
-        var printBalance = new PrintBalanceImpl(atmData.getSummaBanknote());
+        var printBalance = new PrintBalanceImpl(balance);
         printBalance.printBalance();
     }
 }
