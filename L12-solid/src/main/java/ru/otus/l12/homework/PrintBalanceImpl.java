@@ -3,7 +3,7 @@ package ru.otus.l12.homework;
 import java.util.HashMap;
 import java.util.Map;
 
-public class PrintBalanceImpl implements PrintBalance {
+public class PrintBalanceImpl implements IPrintBalance {
     private IBalance balance;
     PrintBalanceImpl (IBalance balance){
         this.balance = balance;

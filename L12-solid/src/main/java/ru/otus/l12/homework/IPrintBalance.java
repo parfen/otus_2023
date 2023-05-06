@@ -1,5 +1,5 @@
 package ru.otus.l12.homework;
 
-public interface PrintBalance {
+public interface IPrintBalance {
     public void printBalance();
 }

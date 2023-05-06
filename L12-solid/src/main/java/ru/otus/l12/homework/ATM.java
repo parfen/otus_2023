@@ -2,7 +2,7 @@ package ru.otus.l12.homework;
 
 import java.util.*;
 
-public class ATM implements IATM,PrintBalance{
+public class ATM implements IATM, IPrintBalance {
     private IBalance balance;
 
     public ATM(IBalance balance){

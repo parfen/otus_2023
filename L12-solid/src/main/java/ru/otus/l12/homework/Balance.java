@@ -11,26 +11,24 @@ public class Balance implements IBalance{
 
     @Override
     public void addCash(List<Banknote> banknotes) {
-        if(banknotes ==null || banknotes.isEmpty()){
+        if(banknotes == null || banknotes.isEmpty()){
             return;
         }
         for(var banknote : banknotes) {
             if (summaBanknote.containsKey(banknote)) {
-                Integer countBanknote = summaBanknote.get(banknote);
-                summaBanknote.put(banknote, countBanknote + 1);
+                summaBanknote.put(banknote, summaBanknote.get(banknote) + 1);
             } else {
                 summaBanknote.put(banknote, 1);
             }
-            sumCash = sumCash + (banknote.getValue());
+            sumCash = sumCash + banknote.getValue();
         }
     }
 
     @Override
     public List<Banknote> getCash(List<Banknote> banknotes) {
         for(var banknote : banknotes){
-            Integer countBanknote = summaBanknote.get(banknote);
-            summaBanknote.put(banknote, countBanknote - 1);
-            sumCash = sumCash - (banknote.getValue());
+            summaBanknote.put(banknote, summaBanknote.get(banknote) - 1);
+            sumCash = sumCash - banknote.getValue();
         }
 
         return banknotes;

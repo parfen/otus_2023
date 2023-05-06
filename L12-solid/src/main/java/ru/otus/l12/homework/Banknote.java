@@ -20,8 +20,4 @@ public enum Banknote {
     public Integer getValue(){
         return value;
     }
-
-
-
-
 }
