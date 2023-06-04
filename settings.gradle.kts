@@ -6,7 +6,8 @@ include ("L06-annotations")
 include ("L08-gc")
 include ("L10-byteCodes")
 include ("L12-solid")
-include ("L15-structuralPatterns")
+include("L15-structuralPatterns:demo")
+include("L15-structuralPatterns:homework")
 
 pluginManagement {
     val jgitver: String by settings
