@@ -34,7 +34,7 @@ public class HomeWork {
          */
 
         var processors = List.of(new ProcessorSwapFields(),
-                new LoggerProcessor(new ProcessorReturnExcEventSecond(LocalDateTime.now())));
+                new LoggerProcessor(new ProcessorReturnExcEventSecond(LocalDateTime::now)));
 
         var complexProcessor = new ComplexProcessor(processors, ex -> {});
         var listenerPrinter = new ListenerPrinterConsole();

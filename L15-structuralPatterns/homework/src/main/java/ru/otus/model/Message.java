@@ -148,6 +148,22 @@ public class Message {
             this.id = id;
         }
 
+        public Builder(Message msg) {
+            this.id = msg.getId();
+            this.field1 = msg.getField1();
+            this.field2 = msg.getField2();
+            this.field3 = msg.getField3();
+            this.field4 = msg.getField4();
+            this.field5 = msg.getField5();
+            this.field6 = msg.getField6();
+            this.field7 = msg.getField7();
+            this.field8 = msg.getField8();
+            this.field9 = msg.getField9();
+            this.field10 = msg.getField10();
+            this.field11 = msg.getField11();
+            this.field12 = msg.getField12();
+            this.field13 = msg.getField13();
+        }
         private Builder(long id, String field1, String field2, String field3, String field4, String field5, String field6, String field7, String field8, String field9, String field10, String field11, String field12, ObjectForMessage field13) {
             this.id = id;
             this.field1 = field1;

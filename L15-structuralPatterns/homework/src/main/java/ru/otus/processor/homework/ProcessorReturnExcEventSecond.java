@@ -7,13 +7,13 @@ import java.time.LocalDateTime;
 
 
 public class ProcessorReturnExcEventSecond implements Processor {
-    private LocalDateTime dateTime = null;
-    public ProcessorReturnExcEventSecond(LocalDateTime dateTime){
+    private DateTimeProvider dateTime = null;
+    public ProcessorReturnExcEventSecond(DateTimeProvider dateTime){
         this.dateTime=dateTime;
     }
     @Override
     public Message process(Message message) {
-        int second = dateTime.getSecond();
+        int second = dateTime.getDate().getSecond();
         if (second%2 == 0){
             throw new RuntimeException("Event Second");
         }

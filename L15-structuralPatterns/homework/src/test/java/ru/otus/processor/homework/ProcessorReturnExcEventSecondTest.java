@@ -18,8 +18,7 @@ public class ProcessorReturnExcEventSecondTest {
     @Test
     void processorTest(){
 
-        var aDateTime = LocalDateTime.of(2023, Month.JUNE, 04, 15, 32, 40);
-        var processor = new ProcessorReturnExcEventSecond(aDateTime);
+        var processor = new ProcessorReturnExcEventSecond(() -> LocalDateTime.of(2023, Month.JUNE, 04, 15, 32, 40));
 
         var id = 100L;
         var data = "33";
