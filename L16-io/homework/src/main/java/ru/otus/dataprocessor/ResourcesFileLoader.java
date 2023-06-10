@@ -25,8 +25,8 @@ public class ResourcesFileLoader implements Loader {
     public List<Measurement> load() {
        try(FileReader reader = new FileReader(fileName)) {
            Type founderListType = new TypeToken<ArrayList<Measurement>>(){}.getType();
-            List<Measurement>  measurements = gson.fromJson(reader, founderListType);
-            return measurements;
+           List<Measurement>  measurements = gson.fromJson(reader, founderListType);
+           return measurements;
         } catch (Exception e) {
            throw new FileProcessException(e);
         }
