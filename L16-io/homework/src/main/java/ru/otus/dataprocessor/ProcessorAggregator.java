@@ -13,11 +13,12 @@ public class ProcessorAggregator implements Processor {
     @Override
     public Map<String, Double> process(List<Measurement> data) {
         //группирует выходящий список по name, при этом суммирует поля value
-        return data.stream().collect(Collectors.groupingBy(Measurement::getName,
-                                     Collectors.summingDouble(Measurement::getValue)))
-                            .entrySet().stream()
-                            .sorted(Map.Entry.comparingByKey())
-                            .collect(Collectors.toMap(Map.Entry::getKey,Map.Entry::getValue,
-                                     (oldValue, newValue) -> oldValue, LinkedHashMap::new));
+        return data.stream()
+                .sorted(Comparator.comparing(Measurement::getName))
+                .collect(Collectors.toMap(
+                        Measurement::getName,
+                        Measurement::getValue,
+                        Double::sum,
+                        LinkedHashMap::new));
     }
 }
