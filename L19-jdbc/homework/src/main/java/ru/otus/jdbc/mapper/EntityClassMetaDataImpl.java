@@ -24,7 +24,7 @@ public class EntityClassMetaDataImpl<T> implements EntityClassMetaData<T>{
     }
 
     @Override
-
+    @SuppressWarnings("unchecked")
     public Constructor<T> getConstructor() {
         try {
             return (Constructor<T>) clazz.getConstructor();
