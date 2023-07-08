@@ -1,6 +1,10 @@
 package ru.otus.crm.model;
 
+import ru.otus.annotations.Id;
+
 public class Client {
+
+    @Id
     private Long id;
     private String name;
 
@@ -16,7 +20,6 @@ public class Client {
         this.id = id;
         this.name = name;
     }
-
     public Long getId() {
         return id;
     }
