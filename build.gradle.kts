@@ -35,7 +35,7 @@ allprojects {
     val protobufBom: String by project
 
     val guava: String by project;
-
+    val ehcache: String by project
 
     apply(plugin = "io.spring.dependency-management")
     dependencyManagement {
@@ -46,6 +46,7 @@ allprojects {
                 mavenBom("com.google.protobuf:protobuf-bom:$protobufBom")
             }
             dependency("com.google.guava:guava:$guava")
+            dependency("org.ehcache:ehcache:$ehcache")
         }
     }
 
