@@ -37,6 +37,8 @@ allprojects {
     val guava: String by project;
     val ehcache: String by project
 
+    val reflections: String by project
+
     apply(plugin = "io.spring.dependency-management")
     dependencyManagement {
         dependencies {
@@ -47,6 +49,7 @@ allprojects {
             }
             dependency("com.google.guava:guava:$guava")
             dependency("org.ehcache:ehcache:$ehcache")
+            dependency("org.reflections:reflections:$reflections")
         }
     }
 
