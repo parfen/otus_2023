@@ -18,7 +18,6 @@ public class ClientsWebServerSimple implements ClientsWebServer {
     private static final String START_PAGE_NAME = "index.html";
     private static final String COMMON_RESOURCES_DIR = "static";
 
-//    private final UserDao userDao;
     private final DBServiceClient clientDao;
     protected final TemplateProcessor templateProcessor;
     private final Server server;
