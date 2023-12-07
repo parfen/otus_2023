@@ -1,0 +1,66 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Пользователи</title>
+    <script>
+        function saveClient() {
+            const name = clientSaveNameTextBox.value;
+            const address = clientSaveAddressTextBox.value;
+            const phone = clientSavePhoneTextBox.value;
+            fetch('api/client/',{
+                    method: 'post',
+                    headers: {
+                    "Content-type": "application/x-www-form-urlencoded; charset=UTF-8"
+                    },
+                    body: 'name='+name+'&address='+address+'&phone='+phone
+             });
+        }
+        function getClients() {
+            const tableBody = document.getElementById('tableBody');
+            fetch('api/client/')
+                 .then(response => response.text())
+                 .then((html) => {tableBody.innerHTML = html});
+        }
+    </script>
+</head>
+
+<body>
+
+<h4>Создать клинета </h4>
+<label>Имя</label>
+<input type="text" id = "clientSaveNameTextBox" value="" placeholder="Введите имя клинета"><br>
+<label>Адрес</label>
+<input type="text" id = "clientSaveAddressTextBox" value="" placeholder="Введите адрес клинета"><br>
+<label>Телефон</label>
+<input type="text" id = "clientSavePhoneTextBox" value="" placeholder="Введите телефон клинета"><br>
+<button onclick="saveClient()">Сохранить</button>
+
+
+<h4>Обновить таблицу клиентов</h4>
+<button onclick="getClients()">Обновить</button>
+
+<h4>Таблица клиентов</h4>
+<table style="width: 400px" border="1" id="table1">
+    <thead>
+    <tr>
+        <td style="width: 50px">Id</td>
+        <td style="width: 150px">Имя</td>
+        <td style="width: 100px">Адрес</td>
+        <td style="width: 100px">Телефон</td>
+    </tr>
+    </thead>
+    <tbody id="tableBody">
+    <#list clients as client>
+    <tr>
+        <td>${client.id}</td>
+        <td>${client.name}</td>
+        <td>${client.address.street}</td>
+        <#list client.phones as item>
+        <td>${item.number}</td>
+        </#list>
+
+    </tr>
+    </#list>
+    </tbody>
+</table>
+</body>
+</html>
