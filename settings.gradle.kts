@@ -22,6 +22,9 @@ include("L22-cache")
 include ("L25-di:class-demo")
 include ("L25-di:homework-template")
 
+include ("L31-concurrentCollections:ConcurrentCollections")
+include ("L31-concurrentCollections:QueueDemo")
+
 pluginManagement {
 
     repositories {
